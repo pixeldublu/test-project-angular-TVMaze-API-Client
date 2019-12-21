@@ -17,7 +17,9 @@ export class DetailsComponent implements OnInit {
     private titleService: Title
   ) {
         this.show = this.route.snapshot.data.show;
-        this.titleService.setTitle(`${this.show.name}${TITLES.details}`);
+        if(this.show && this.show.name) {
+          this.titleService.setTitle(`${this.show.name}${TITLES.details}`);
+        }
   }
 
   ngOnInit() {
