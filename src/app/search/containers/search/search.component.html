@@ -1,0 +1,14 @@
+<div class="search-container">
+  <input type="text" #searchInput class="search-input" placeholder="Type any tv show name" />
+</div>
+
+<div class="results-wrapper">
+  <div class="results-container">
+    <app-show-box class="result-item" [show]="show" *ngFor="let show of showList" (click)="openShow(show.id)"></app-show-box>
+  </div>
+</div>
+
+
+
+
+

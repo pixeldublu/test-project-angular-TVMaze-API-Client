@@ -1,0 +1,32 @@
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+
+.search-input {
+  width: 50%;
+  border: 0px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+
+.results-wrapper {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.results-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.result-item {
+  margin: 1rem;
+}

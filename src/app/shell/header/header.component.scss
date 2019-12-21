@@ -1,0 +1,19 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.logo {
+  font-size: 4rem;
+  text-transform: lowercase;
+}
+
+
+.logo-link, logo-link:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: none;;
+}

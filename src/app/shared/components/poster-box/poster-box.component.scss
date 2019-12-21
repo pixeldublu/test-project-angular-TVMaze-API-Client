@@ -1,0 +1,32 @@
+
+.image-box {
+  width: 210px;
+  height: 295px;
+  background: #f6f7f8;
+  margin-bottom: 10px;
+}
+
+.loading-image {
+  display: inline-block;
+  width: 210px;
+  height: 295px;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: fakeItTillYouMakeIt;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  position: relative;
+}
+
+
+@keyframes fakeItTillYouMakeIt{
+  0%{
+      background-position: -468px 0
+  }
+  100%{
+      background-position: 468px 0
+  }
+}
