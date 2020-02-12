@@ -1,9 +1,14 @@
+<div class="search-background-image"></div>
+
 <div class="search-container">
+  <h1 class="logo">sear.ch</h1>
+
   <input type="text" #searchInput class="search-input" placeholder="Type any tv show name" />
 </div>
 
 <div class="results-wrapper">
   <div class="results-container">
+    <span class="no-results-message" *ngIf="keyCount > 0 && !(showList.length > 0)">Seems like we did not find any tv show matching your criteria :(</span>
     <app-show-box class="result-item" [show]="show" *ngFor="let show of showList" (click)="openShow(show.id)"></app-show-box>
   </div>
 </div>

@@ -1,19 +1,26 @@
 .header-container {
+  min-height: 4rem;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  border-top: 1px solid #ECD444;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: start;
+  justify-content: start;
+  background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 
 .logo {
-  font-size: 4rem;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  color: #ECD444;
   text-transform: lowercase;
 }
 
 
 .logo-link, logo-link:hover {
   cursor: pointer;
-  color: black;
   text-decoration: none;;
 }

@@ -1,20 +1,20 @@
-
-<div class="banner-wrapper">
-    <div class="dotted-overlay"></div>
-    <div *ngIf="show?.image?.original" class="banner" [ngStyle]="{'background-image': 'url(' + show?.image?.original + ')'}"></div>
+<div class="background-wrapper">
+  <div class="background" [ngStyle]="{'background-image': 'url(' + show?.image?.original + ')'}"></div>
 </div>
+<div class="dotted-overlay"></div>
 
+  <main class="details-content">
 
-<main class="details-content">
-  <app-poster-box [image]="show?.image?.medium" [isLoading]="false"></app-poster-box>
+    <app-poster-box [image]="show?.image?.medium" [isLoading]="false"></app-poster-box>
 
-  <div class="details">
-    <p class="show-summary">{{strip(show?.summary)}}</p>
-    <p *ngIf="show?.language"><b>Language</b>: {{show?.language}}</p>
-    <p *ngIf="show?.premiered"><b>Premiered</b>: {{show?.premiered | date}}</p>
-    <p *ngIf="show?.rating?.average"><b>Rating</b>: {{show?.rating?.average}}</p>
+    <div class="details">
+      <p class="show-summary">{{strip(show?.summary)}}</p>
+      <p *ngIf="show?.language"><b>Language</b>: {{show?.language}}</p>
+      <p *ngIf="show?.premiered"><b>Premiered</b>: {{show?.premiered | date}}</p>
+      <p *ngIf="show?.rating?.average"><b>Rating</b>: {{show?.rating?.average}}</p>
 
-  </div>
-</main>
+    </div>
+  </main>
+
 
 <!-- <pre>{{show | json}}</pre> -->

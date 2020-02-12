@@ -3,19 +3,24 @@
   height: 350px;
   animation-duration: 0.75s;
   animation-name: bounceIn;
+  transition: ease-in 0.3s;
 }
 
 .show-box:hover {
+  transform: scale(1.1);
   cursor: pointer;
-  .show-poster-box {
-    border-top: 5px solid #f6f7f8;
-    transition-duration: 250ms;
+  .show-box {
+    border-bottom: 2px solid #ECD444;
+  }
+  .name-box {
+    color: #ECD444;
   }
 }
 
 .name-box {
   width: 100%;
   text-align: center;
+  transition: ease-in 0.3s;
 }
 
 /*
