@@ -1,3 +1,4 @@
+import { BackService } from '@app/shared/services/back.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
@@ -12,7 +13,8 @@ describe('HeaderComponent', () => {
       declarations: [ HeaderComponent ],
       imports: [
         RouterTestingModule
-      ]
+      ],
+      providers: [BackService]
     })
     .compileComponents();
   }));

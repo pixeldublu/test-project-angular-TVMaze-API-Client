@@ -3,11 +3,12 @@ import { SearchResult } from '@app/core/models/search-result.model';
 import { Show } from '@app/core/models/show.model';
 import { SearchService } from '@app/search/services/search.service';
 import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, finalize, map, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, finalize, map, tap, first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, ɵDomAdapter } from '@angular/platform-browser';
 import { TITLES } from '@env/environment';
 import { BackService } from '@app/shared/services/back.service';
+import { BackData } from '@app/core/models/back-data.model';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +20,8 @@ export class SearchComponent implements OnInit {
 
   showList: Show[] = [];
   keyCount = 0;
-  searched: string;
+  backData: BackData;
+  searched = '';
   searchSubscription: Subscription;
 
   constructor(
@@ -29,9 +31,20 @@ export class SearchComponent implements OnInit {
     private backService: BackService) {}
 
   ngOnInit() {
+    this.backService.backData$.pipe(first(),
+    tap(data => {
+      if(data && data.searched && data.searched.trim().length > 0) {
+        this.searchInput.nativeElement.value = data.searched;
+        // this.searchInput.nativeElement.dispatchEvent(new KeyboardEvent('keyup', {bubbles: true}));
+        this.search(data.searched);
+        this.searched = data.searched;
+      }
+      this.backService.updateBackData({show: false, searched: this.searched });
+    })).subscribe();
 
 
-    // this.backService.updateBackData('');
+
+
 
     this.titleService.setTitle(TITLES.search);
     fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -42,6 +55,7 @@ export class SearchComponent implements OnInit {
         tap((res) => {
           this.searched = '';
           this.keyCount = 0;
+          this.backService.updateBackData({show: false, searched: this.searched});
           this.showList = (res.length <= 2) ? [] : this.showList[0] && this.showList[0].name ? this.showList : Array(5).fill({isLoading: true});
         }),
         filter(res => res.length > 2),
@@ -49,33 +63,36 @@ export class SearchComponent implements OnInit {
         debounceTime(500),
         distinctUntilChanged()
       )
-      .subscribe((text: string) => {
-        this.keyCount = text.length;
-        this.searched = text;
-        this.searchSubscription = this.searchService
-          .search(text)
-          .pipe(finalize(() => {
-            if (this.searchSubscription) {
-              this.searchSubscription.unsubscribe();
-            }
-          }))
-          .subscribe(
-            (results: SearchResult[]) => {
-              if (results.length > 0) {
-              }
-              this.showList = results.map(
-                (result: SearchResult) => result.show
-              );
-            },
-            (error: string) => {
-              console.error(error);
-            }
+      .subscribe(text => this.search(text));
+  }
+
+  private search(text: string) {
+    this.searched = text;
+    this.backService.updateBackData({show: false, searched: this.searched});
+    this.keyCount = text.length;
+    this.searchSubscription = this.searchService
+      .search(text)
+      .pipe(finalize(() => {
+        if (this.searchSubscription) {
+          this.searchSubscription.unsubscribe();
+        }
+      }))
+      .subscribe(
+        (results: SearchResult[]) => {
+          if (results.length > 0) {
+          }
+          this.showList = results.map(
+            (result: SearchResult) => result.show
           );
-      });
+        },
+        (error: string) => {
+          console.error(error);
+        }
+      );
   }
 
   public openShow(id: number): void {
-    this.backService.updateBackData(this.searched);
+    this.backService.updateBackData({show: true, searched: this.searched});
     this.router.navigateByUrl(`/details/${id}`);
   }
 

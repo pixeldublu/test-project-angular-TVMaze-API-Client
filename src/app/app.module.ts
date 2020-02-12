@@ -1,3 +1,4 @@
+import { BackService } from './shared/services/back.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

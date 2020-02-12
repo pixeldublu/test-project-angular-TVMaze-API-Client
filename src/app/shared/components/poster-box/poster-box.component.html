@@ -1,6 +1,7 @@
 <div class="poster">
     <div class="image-box">
         <img *ngIf="image" [src]="image">
+        <img *ngIf="!isLoading && !image" src="/assets/no-poster.jpg">
         <span class="loading-image" *ngIf="isLoading"></span>
     </div>
 </div>

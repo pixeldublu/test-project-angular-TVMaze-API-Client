@@ -1,3 +1,4 @@
+import { BackService } from '@app/shared/services/back.service';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, SharedModule],
       declarations: [AppComponent],
-      providers: []
+      providers: [BackService]
     });
     TestBed.compileComponents();
   }));

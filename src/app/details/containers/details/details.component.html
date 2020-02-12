@@ -5,9 +5,10 @@
 
   <main class="details-content">
 
-    <app-poster-box [image]="show?.image?.medium" [isLoading]="false"></app-poster-box>
+    <app-poster-box class="poster" [image]="show?.image?.medium" [isLoading]="false"></app-poster-box>
 
     <div class="details">
+      <h2 class="movie-name">{{show?.name}}</h2>
       <p class="show-summary">{{strip(show?.summary)}}</p>
       <p *ngIf="show?.language"><b>Language</b>: {{show?.language}}</p>
       <p *ngIf="show?.premiered"><b>Premiered</b>: {{show?.premiered | date}}</p>

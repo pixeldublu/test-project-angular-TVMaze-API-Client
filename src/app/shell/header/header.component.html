@@ -1,4 +1,5 @@
 <header class="header-container">
-  <a *ngIf="backData | async" (click)="goHome()" class="logo-link"><h1 class="logo">sear.ch</h1></a>
+  <a (click)="goHome(true)"><h1 class="logo logo-link">sear.ch</h1></a>
+  <button *ngIf="showBackButton" (click)="goHome()" class="back-button">Back to Results</button>
 </header>
 

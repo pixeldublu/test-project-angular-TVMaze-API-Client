@@ -1,3 +1,4 @@
+import { BackService } from '@app/shared/services/back.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
@@ -38,6 +39,7 @@ describe('SearchComponent', () => {
         SearchRoutingModule
       ],
       providers: [
+        BackService,
         {
         provide: SearchService,
         useClass: FakeSearchService,

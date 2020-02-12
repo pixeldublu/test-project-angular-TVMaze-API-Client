@@ -1,13 +1,13 @@
 .header-container {
   min-height: 4rem;
-  z-index: 1000;
+  z-index: 1200;
   position: fixed;
   width: 100%;
   top: 0px;
-  border-top: 1px solid #ECD444;
+  border-top: 1px solid #A3F7BF;
   display: flex;
   align-items: start;
-  justify-content: start;
+  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
@@ -15,12 +15,33 @@
 .logo {
   margin-left: 1rem;
   font-size: 1.4rem;
-  color: #ECD444;
+  color: #A3F7BF;
   text-transform: lowercase;
+  flex: 1;
+  cursor: pointer;
+  text-decoration: none;;
 }
 
 
-.logo-link, logo-link:hover {
+.logo-link:hover {
+  color: #fff;
+}
+
+
+.back-button {
+  background: #A3F7BF;
+  color: #000;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  border: 0px;
+  outline: 0px;
+  flex: 1;
+  max-width: 150px;
+  margin: 0.7rem;
+  padding: 0.4rem;
   cursor: pointer;
-  text-decoration: none;;
+}
+
+.back-button:hover {
+  background-color: #fff;
 }

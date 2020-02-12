@@ -12,8 +12,8 @@ export const TITLES = {
 }
 
 export const API_URLS = {
-  search: 'http://api.tvmaze.com/search/shows',
-  shows: 'http://api.tvmaze.com/shows'
+  search: 'https://api.tvmaze.com/search/shows',
+  shows: 'https://api.tvmaze.com/shows'
 };
 
 /*

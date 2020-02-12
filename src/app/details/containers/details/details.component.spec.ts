@@ -1,3 +1,4 @@
+import { BackService } from '@app/shared/services/back.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailsComponent } from './details.component';
@@ -24,8 +25,8 @@ describe('DetailsComponent', () => {
         SharedModule,
         ShellModule,
         DetailsRoutingModule
-      ]
-
+      ],
+      providers: [BackService]
     })
     .compileComponents();
   }));

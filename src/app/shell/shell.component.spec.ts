@@ -1,3 +1,4 @@
+import { BackService } from '@app/shared/services/back.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShellComponent } from './shell.component';
@@ -15,7 +16,8 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         SharedModule
-      ]
+      ],
+      providers: [BackService]
     })
     .compileComponents();
   }));

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PosterBoxComponent } from './components/poster-box/poster-box.component';
-import { BackService } from './services/back.service';
 
 
 
@@ -11,6 +10,6 @@ import { BackService } from './services/back.service';
     CommonModule
   ],
   exports: [PosterBoxComponent],
-  providers: [BackService]
+  providers: []
 })
 export class SharedModule { }
