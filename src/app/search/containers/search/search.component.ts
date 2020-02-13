@@ -56,7 +56,7 @@ export class SearchComponent implements OnInit {
           this.searched = '';
           this.keyCount = 0;
           this.backService.updateBackData({show: false, searched: this.searched});
-          this.showList = (res.length <= 2) ? [] : this.showList[0] && this.showList[0].name ? this.showList : Array(5).fill({isLoading: true});
+          this.showList = (res.length <= 2) ? [] : this.showList[0] ? this.showList : Array(5).fill({isLoading: true});
         }),
         filter(res => res.length > 2),
         // fake it till you make it :)

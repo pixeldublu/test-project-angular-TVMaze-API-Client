@@ -17,7 +17,7 @@ module.exports = function (config) {
       args: ['--no-sandbox']
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/Movies-Angular'),
+      dir: require('path').join(__dirname, './coverage/tvmaze-angular-client'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
